@@ -1,17 +1,14 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
-  "version": "${version}",
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "id": "golxden-client",
+  "version": "1.0.0",
+  "name": "Golxden Client",
+  "description": "Sus Finder Mod",
   "authors": [
-    "Me!"
+    "You"
   ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
-  "license": "CC0-1.0",
+  "contact": {},
+  "license": "MIT",
   "icon": "assets/modid/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -19,18 +16,16 @@
       "com.example.ExampleMod"
     ],
     "client": [
-      "com.example.ExampleModClient"
+      "com.example.ExampleMod"
     ]
   },
   "mixins": [
     "modid.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.16.10",
-    "minecraft": "~1.20.1",
-    "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
+    "fabricloader": ">=0.16.0",
+    "minecraft": "1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
   }
 }
