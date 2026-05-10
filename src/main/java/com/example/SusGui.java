@@ -12,7 +12,6 @@ public class SusGui extends Screen {
 
     @Override
     protected void init() {
-        // This button toggles the scanner on and off
         this.addDrawableChild(ButtonWidget.builder(Text.literal("Toggle Scanner"), button -> {
             ExampleMod.enabled = !ExampleMod.enabled;
             button.setMessage(Text.literal("Scanner: " + (ExampleMod.enabled ? "§aON" : "§cOFF")));
@@ -21,8 +20,8 @@ public class SusGui extends Screen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        // FIXED: Modern Fabric versions only use 'context' for renderBackground
-        this.renderBackground(context, mouseX, mouseY, delta);
+        // FIXED: Only passing 'context' now to match the "Required" part of your error
+        this.renderBackground(context); 
         
         context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 20, 0xFFFFFF);
         super.render(context, mouseX, mouseY, delta);
