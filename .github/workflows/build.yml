@@ -19,4 +19,4 @@ jobs:
           gradle-version: 8.8
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew build --no-daemon
