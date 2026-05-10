@@ -17,7 +17,6 @@ import java.util.List;
 public class ExampleMod implements ModInitializer {
     public static boolean enabled = false;
     private static KeyBinding guiKey;
-    // Store found locations here
     private static final List<BlockPos> foundBlocks = new ArrayList<>();
 
     @Override
@@ -37,7 +36,7 @@ public class ExampleMod implements ModInitializer {
             }
 
             if (enabled) {
-                foundBlocks.clear(); // Refresh every tick
+                foundBlocks.clear();
                 BlockPos targetPos = client.player.getBlockPos().down(6);
                 if (client.world.getBlockState(targetPos).isOf(Blocks.COBBLED_DEEPSLATE)) {
                     foundBlocks.add(targetPos);
@@ -48,15 +47,10 @@ public class ExampleMod implements ModInitializer {
             }
         });
 
-        // This part draws the BLUE box in the world
         WorldRenderEvents.BEFORE_DEBUG_RENDER.register(context -> {
             if (!enabled || foundBlocks.isEmpty()) return;
-
             for (BlockPos pos : foundBlocks) {
-                // Draws a 1x1 blue box at the block's position
-                Box box = new Box(pos);
-                // color: 0, 0, 1 is Blue (RGB)
-                DebugRenderer.drawBox(context.matrixStack(), box, 0, 0, 1, 0.5f);
+                DebugRenderer.drawBox(context.matrixStack(), new Box(pos), 0, 0, 1, 0.5f);
             }
         });
     }
